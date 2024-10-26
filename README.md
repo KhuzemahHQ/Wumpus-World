@@ -9,3 +9,16 @@ In the Jupyter notebook, the starter code creates a random world (i.e., S, G and
 
 ![unsolvable](https://github.com/user-attachments/assets/623ee7ac-871c-46d0-9c9b-906619de3df2)
 
+
+
+1) Simple Reflex Agent:
+Simple Reflex Agent
+The Simple Reflex Agent operates solely on immediate perceptions, without any memory or model of the world. It chooses directions at each cell to move left, right, up, or down, and only reacts based on the current room’s state. If it falls into a pit, it returns to the last visited room without learning its location, and continues exploration with no adjustments for future decisions.
+
+To prevent indefinite exploration in unsolvable grids, a time limit of 45 seconds is enforced. If the agent fails to reach the gold within this time, it stops and returns "unsolvable". In a solvable world, the agent will eventually reach the gold and return "Gold Found!".
+
+2) Model-Based Agent
+The Model-Based Agent constructs a world model as it navigates, recording each room's state (e.g., safe, pit, gold). Starting from an empty map, the agent updates its model with each room visited. If it encounters a pit, it pays a penalty and returns to the previous room, marking the pit location in its model to avoid it in future moves.
+
+The agent aims to reach the gold with a minimum balance of $2000 by limiting pit penalties. If the gold is unreachable within 45 seconds after the entire world (minus the gold room) is explored, the agent concludes that the problem is "unsolvable" and outputs its final model state. In solvable cases, the agent reaches the gold and returns "Gold Found! x dollars left in the bank too!", where x represents the remaining funds.
+
